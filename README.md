@@ -1,5 +1,19 @@
 # Free Campus Map
 
+<div align="center">
+
+<p><strong>CAMPUS NAVIGATION PROTOTYPE</strong></p>
+
+<img src="https://img.shields.io/badge/Flutter-0F172A?style=for-the-badge" alt="Flutter" />
+<img src="https://img.shields.io/badge/Dart-0F172A?style=for-the-badge" alt="Dart" />
+<img src="https://img.shields.io/badge/OpenStreetMap-0F172A?style=for-the-badge" alt="OpenStreetMap" />
+
+<a href="https://github.com/rahat-codes/free_campus_map"><img src="https://img.shields.io/github/stars/rahat-codes/free_campus_map?style=social" alt="GitHub stars" /></a>
+
+</div>
+
+---
+
 A Flutter campus-navigation prototype centered on the Tongmyong University area in Busan, South Korea. The app combines an interactive map, OpenStreetMap place discovery, device location, and walking-route requests.
 
 > **Project status:** Prototype. Place coverage and route availability depend on third-party OpenStreetMap services and their data. The initial map center is an approximate viewing location, not a verified building coordinate.
