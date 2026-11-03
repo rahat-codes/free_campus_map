@@ -1,0 +1,11 @@
+@"
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/
+.vscode/
+android/local.properties
+"@ | Set-Content .gitignore
