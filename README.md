@@ -1,17 +1,85 @@
-# free_campus_map
+# Free Campus Map
 
-A new Flutter project.
+A Flutter campus-navigation prototype centered on the Tongmyong University area in Busan, South Korea. The app combines an interactive map, OpenStreetMap place discovery, device location, and walking-route requests.
 
-## Getting Started
+> **Project status:** Prototype. Place coverage and route availability depend on third-party OpenStreetMap services and their data. The initial map center is an approximate viewing location, not a verified building coordinate.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Interactive map built with `flutter_map`.
+- OpenStreetMap map tiles and an optional satellite imagery layer.
+- Nearby named-place discovery using the Overpass API.
+- Current-device location using `geolocator`.
+- Destination selection and walking-route requests.
+- Route distance and estimated duration display.
+- Asynchronous loading and user-facing error messages for external service failures.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Technology Stack
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Area | Technology |
+|---|---|
+| Mobile application | Flutter, Dart |
+| Map rendering | flutter_map |
+| Coordinates and distance | latlong2 |
+| Device location | geolocator |
+| HTTP requests | http |
+| Place discovery | OpenStreetMap Overpass API |
+| Map data | OpenStreetMap; satellite imagery layer |
+
+## Application Structure
+
+The current prototype keeps its implementation primarily in one file:
+
+```text
+lib/
+└── main.dart
+```
+
+The main file currently contains the app entry point, place model, map screen, API requests, location handling, route state, and map UI.
+
+**Engineering improvement opportunity:** split this prototype into feature-oriented modules (for example, `models/`, `services/`, `screens/`, and `widgets/`) and add unit/widget tests as the project grows.
+
+## Requirements
+
+- Flutter SDK compatible with the Dart constraint in `pubspec.yaml`
+- Android Studio or Visual Studio Code
+- An Android/iOS device or emulator
+- Internet access for map tiles, Overpass place data, and route requests
+- Location permission and device location services for live positioning
+
+## Run Locally
+
+```bash
+git clone https://github.com/rahat-codes/free_campus_map.git
+cd free_campus_map
+flutter pub get
+flutter analyze
+flutter run
+```
+
+## External Services and Data
+
+- [OpenStreetMap](https://www.openstreetmap.org/) provides map data.
+- [Overpass API](https://overpass-api.de/) is used to discover named places.
+- [OpenStreetMap routing service](https://routing.openstreetmap.de/) is used for route requests.
+- The app also uses a third-party satellite imagery tile source.
+
+These services are independent of this app. Their availability, rate limits, attribution requirements, and data coverage may change. Do not treat map results as authoritative campus facility records.
+
+## Privacy and Permissions
+
+Live location requires the operating system's location permission. The app requests location access when the user starts location tracking. Review the platform permission declarations before distributing a production build.
+
+## Roadmap
+
+- [ ] Separate map, location, place-search, and routing services from the screen widget.
+- [ ] Add unit tests for coordinate and route-response parsing.
+- [ ] Add widget tests for loading, empty, and error states.
+- [ ] Add retry/backoff and clearer API rate-limit handling.
+- [ ] Add a verified campus dataset and distinguish official facilities from community-mapped places.
+- [ ] Add screenshots and a short screen recording.
+- [ ] Document attribution and production tile-service requirements.
+
+## Author
+
+**Rahat** · [GitHub](https://github.com/rahat-codes)
